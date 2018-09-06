@@ -25,6 +25,10 @@ function makeInjectedResponse(koaCtx, whenEnded) {
                 default404to200()
                 return res.write.apply(res, arguments);
             },
+            set status(v) {
+                statusCodeSetted = true;
+                res.statusCode = v;
+            },
             set statusCode(v) {
                 statusCodeSetted = true;
                 res.statusCode = v;
